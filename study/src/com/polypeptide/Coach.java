@@ -1,3 +1,5 @@
+package com.polypeptide;
+
 /**
  * 客车
  * @author aiboleepro

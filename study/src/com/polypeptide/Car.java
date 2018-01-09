@@ -1,3 +1,5 @@
+package com.polypeptide;
+
 /**
  * @author aiboleepro
  * @date 2018-01-08 下午12:35

@@ -1,5 +1,7 @@
 package com.executor;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -9,9 +11,12 @@ import java.util.concurrent.TimeUnit;
 public class WorkerBank2 extends Worker {
 
     @Override
-    public Integer call() throws Exception {
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println("我是银行2： 你查询的资产为: 300");
-        return 300;
+    public Map<String,Object> call() throws Exception {
+        Map<String,Object> map = new HashMap<>(2);
+        TimeUnit.SECONDS.sleep(6);
+        map.put("result",0);
+        map.put("money",300);
+        System.out.println("我是银行1： 你查询的资产为: 300");
+        return map;
     }
 }

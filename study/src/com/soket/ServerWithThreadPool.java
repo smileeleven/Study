@@ -14,7 +14,7 @@ public class ServerWithThreadPool {
     // 监听的端口号
     private static final int PORT = 8080;
     // 创建了线程池
-    private static ExecutorService executorService = Executors.newCachedThreadPool();
+    private static ExecutorService executorService = Executors.newFixedThreadPool(50);
 
     private void init(){
         try {

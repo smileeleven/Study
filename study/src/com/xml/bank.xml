@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banks>
+    <bank id="1">
+        <user id="1">
+            <money>200</money>
+        </user>
+    </bank>
+    <bank id="2">
+        <user id="2">
+            <money>200</money>
+        </user>
+    </bank>
+    <bank id="3">
+        <user id="3">
+            <money>200</money>
+        </user>
+    </bank>
+</banks>

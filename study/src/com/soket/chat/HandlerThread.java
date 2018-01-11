@@ -1,4 +1,4 @@
-package com.soket;
+package com.soket.chat;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

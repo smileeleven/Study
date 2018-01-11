@@ -1,8 +1,11 @@
 package com.soket;
 
+import com.xml.XmlUtil;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.util.Map;
 
 /**
  * 处理接受的soket请求
@@ -28,10 +31,12 @@ public class DealSocket implements Runnable {
             String clientInputStr = input.readUTF();
             // 处理客户端数据
             System.out.println("客户端发过来的内容:" + clientInputStr);
+            Map<String,String> map = XmlUtil.parseParam(clientInputStr);
+            System.out.println(map);
+            String money = XmlUtil.parseBank(map.get("bankId"),map.get("userId"));
             // 向客户端回复信息
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            String msg = "你接收到我的回信";
-            out.writeUTF(msg);
+            out.writeUTF(money);
             out.close();
             input.close();
         } catch (Exception e) {

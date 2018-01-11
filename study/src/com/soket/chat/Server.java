@@ -1,4 +1,4 @@
-package com.soket;
+package com.soket.chat;
 
 import java.net.ServerSocket;
 import java.net.Socket;

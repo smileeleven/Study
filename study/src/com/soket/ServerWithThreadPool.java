@@ -24,6 +24,7 @@ public class ServerWithThreadPool {
                 Socket client = serverSocket.accept();
                 // 处理这次连接
                 executorService.submit(new DealSocket(client));
+//                executorService.shutdown();
             }
         } catch (Exception e) {
             System.out.println("服务器异常: " + e.getMessage());

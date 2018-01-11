@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.util.Map;
 
 /**
- * 处理接受的soket请求
+ * 处理接受的socket请求
  *
  * @author aiboleepro
  * @date 2018-01-10 下午6:42

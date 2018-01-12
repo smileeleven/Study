@@ -23,8 +23,8 @@ public class Client {
             FileInputStream inputStream = new FileInputStream(file);
             //            out.writeUTF("face.jpg");
             byte[] bytes = new byte[1024];
-            while(inputStream.read(bytes, 0, bytes.length)  > 0){
-                out.write(bytes,0, bytes.length);
+            while (inputStream.read(bytes, 0, bytes.length) > 0) {
+                out.write(bytes, 0, bytes.length);
                 out.flush();
             }
             inputStream.close();

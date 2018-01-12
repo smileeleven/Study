@@ -1,5 +1,8 @@
 package com.xml;
 
+import com.bean.Book;
+import com.util.JaxbUtil;
+
 import java.util.Date;
 
 /**

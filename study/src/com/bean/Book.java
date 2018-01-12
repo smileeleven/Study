@@ -1,4 +1,4 @@
-package com.xml;
+package com.bean;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;

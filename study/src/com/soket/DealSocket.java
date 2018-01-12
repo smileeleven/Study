@@ -2,13 +2,11 @@ package com.soket;
 
 import com.bean.BankParam;
 import com.bean.BankResult;
-import com.xml.JaxbUtil;
-import com.xml.XmlUtil;
+import com.util.JaxbUtil;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
-import java.util.Map;
 
 /**
  * 处理接受的socket请求

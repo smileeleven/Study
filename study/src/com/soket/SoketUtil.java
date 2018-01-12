@@ -2,7 +2,7 @@ package com.soket;
 
 import com.bean.BankParam;
 import com.bean.BankResult;
-import com.xml.JaxbUtil;
+import com.util.JaxbUtil;
 
 import java.io.*;
 import java.net.Socket;

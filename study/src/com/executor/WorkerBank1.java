@@ -3,7 +3,6 @@ package com.executor;
 import com.bean.BankParam;
 import com.bean.BankResult;
 import com.soket.SoketUtil;
-import com.xml.JaxbUtil;
 
 import java.util.HashMap;
 import java.util.Map;

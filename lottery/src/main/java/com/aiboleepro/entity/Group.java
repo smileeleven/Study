@@ -3,25 +3,26 @@ package com.aiboleepro.entity;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
- * 用户实体类
+ * 小组实体类
  *
  * @author aiboleepro
- * @date 2018-01-09 下午7:44
+ * @date 2018-01-12 下午2:15
  **/
 @Data
-public class User {
+public class Group {
 
     private String id;
     /**
-     * 姓名
+     * 小组名称
      */
     private String name;
     /**
-     * 头像
+     * 小组成员
      */
-    private String face;
+    private List<User> user;
     /**
      * 当前积分
      */
@@ -30,6 +31,4 @@ public class User {
      * 最近一次被抽中的时间
      */
     private Date lastTime;
-
-
 }

@@ -13,18 +13,18 @@ import java.util.concurrent.TimeUnit;
  **/
 public class Client {
 
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        WorkerA a = new WorkerA();
-        WorkerA b = new WorkerA();
-        List<Worker> list = new ArrayList<>();
-        list.add(a);
-        list.add(b);
-        List<Future<Map>> futures = executorService.invokeAll(list, 30, TimeUnit.SECONDS);
-        //遍历结果
-        for (Future future : futures
-                ) {
-            System.out.println(future.toString());
-        }
+  public static void main(String[] args) throws InterruptedException {
+    ExecutorService executorService = Executors.newCachedThreadPool();
+    WorkerA a=new WorkerA();
+    WorkerA b=new WorkerA();
+    List<Worker> list=new ArrayList<>();
+    list.add(a);
+    list.add(b);
+    List<Future<Map>> futures = executorService.invokeAll(list, 30, TimeUnit.SECONDS);
+    //遍历结果
+    for (Future future:futures
+    ) {
+      System.out.println(future.toString());
     }
+  }
 }

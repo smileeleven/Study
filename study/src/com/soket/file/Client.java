@@ -9,9 +9,9 @@ import java.net.Socket;
  **/
 public class Client {
     //服务器地址
-    private static final String IP_ADDR = "localhost";
+    private static final String IP_ADDR = "192.168.0.109";
     //服务器端口号
-    private static final int PORT = 8080;
+    private static final int PORT = 8999;
 
     public static void main(String[] args) {
         System.out.println("客户端启动...");
@@ -19,16 +19,17 @@ public class Client {
         try {
             socket = new Socket(IP_ADDR, PORT);
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            File file = new File("/Users/aiboleepro/IdeaProjects/Study/study/src/com/xml/bank.xml");
+            File file = new File("/Users/aiboleepro/Pictures/face.jpg");
             FileInputStream inputStream = new FileInputStream(file);
-            out.writeUTF("bank2.xml");
+            //            out.writeUTF("face.jpg");
             byte[] bytes = new byte[1024];
-            while( inputStream.read(bytes, 0, bytes.length)  > 0){
+            while(inputStream.read(bytes, 0, bytes.length)  > 0){
                 out.write(bytes,0, bytes.length);
                 out.flush();
             }
             inputStream.close();
             out.close();
+            System.out.println("图片上传成功...");
         } catch (Exception e) {
             System.out.println("客户端异常:" + e.getMessage());
         } finally {

@@ -1,5 +1,9 @@
 package com.soket;
 
+import com.bean.BankParam;
+import com.bean.BankResult;
+import com.xml.JaxbUtil;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -14,17 +18,20 @@ public class SoketUtil {
     //服务器端口号
     private static final int PORT = 8080;
 
-    public static String request(String params){
+    public static BankResult request(BankParam bankParam){
         Socket socket = null;
         try{
             socket = new Socket(IP_ADDR, PORT);
-            //向服务器端发送数据
+            // 向服务器端发送数据
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            String params = JaxbUtil.convertToXml(bankParam);
             out.writeUTF(params);
-            System.out.println("已经发送完请求参数...");
-            //读取服务器端数据
+            // 读取服务器端数据
             DataInputStream input = new DataInputStream(socket.getInputStream());
-            return input.readUTF();
+            String result = input.readUTF();
+            out.close();
+            input.close();
+            return JaxbUtil.convertToJavaBean(result,BankResult.class);
         }catch (Exception e){
             e.printStackTrace();
             return null;

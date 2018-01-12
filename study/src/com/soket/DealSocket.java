@@ -1,5 +1,8 @@
 package com.soket;
 
+import com.bean.BankParam;
+import com.bean.BankResult;
+import com.xml.JaxbUtil;
 import com.xml.XmlUtil;
 
 import java.io.DataInputStream;
@@ -29,14 +32,17 @@ public class DealSocket implements Runnable {
             DataInputStream input = new DataInputStream(socket.getInputStream());
             //这里要注意和客户端输出流的写方法对应,否则会抛 EOFException
             String clientInputStr = input.readUTF();
+            BankParam bankParam = JaxbUtil.convertToJavaBean(clientInputStr,BankParam.class);
             // 处理客户端数据
-            System.out.println("客户端发过来的内容:" + clientInputStr);
-            Map<String,String> map = XmlUtil.parseParam(clientInputStr);
-            System.out.println(map);
-            String money = XmlUtil.parseBank(map.get("bankId"),map.get("userId"));
+            System.out.println("客户端发过来的内容:" + bankParam.toString());
+            BankResult bankResult = new BankResult();
+            bankResult.setBankId(bankParam.getBankId());
+            bankResult.setUserId(bankParam.getUserId());
+            bankResult.setTradeNo(bankParam.getTradeNo());
+            bankResult.setMoney(200);
             // 向客户端回复信息
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF(money);
+            out.writeUTF(JaxbUtil.convertToXml(bankResult));
             out.close();
             input.close();
         } catch (Exception e) {

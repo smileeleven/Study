@@ -33,6 +33,9 @@ public class Server {
             fileOutputStream.flush();
         }
         fileOutputStream.close();
+        socket.shutdownInput();
+        socket.close();
+        System.out.println("图片接受成功");
     }
 
     public static void main(String[] args) {

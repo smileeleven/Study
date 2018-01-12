@@ -1,6 +1,9 @@
 package com.executor;
 
+import com.bean.BankParam;
+import com.bean.BankResult;
 import com.soket.SoketUtil;
+import com.xml.JaxbUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +21,12 @@ public class WorkerBank1 extends Worker {
         TimeUnit.SECONDS.sleep(5);
         map.put("result",0);
         map.put("money",200);
-        String param = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-        param += "<params>" +
-                    "<bankId>1</bankId>" +
-                    "<userId>1</userId>" +
-                "</params>";
-        String res = SoketUtil.request(param);
-        map.put("money",Integer.valueOf(res));
+        BankParam bankParam = new BankParam();
+        bankParam.setBankId("123");
+        bankParam.setUserId("345");
+        bankParam.setTradeNo("20180112");
+        BankResult res = SoketUtil.request(bankParam);
+        map.put("money",res.getMoney());
         System.out.println("我是银行1： 你查询的资产为: " + res);
         return map;
     }

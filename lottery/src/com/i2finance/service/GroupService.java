@@ -17,9 +17,9 @@ public interface GroupService {
     /**
      * 移除小组内成员
      *
-     * @param user
+     * @param userId
      */
-    void removeUserFromGroup(User user);
+    void removeUserFromGroup(String userId);
 
     /**
      * 小组内添加成员

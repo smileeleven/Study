@@ -9,10 +9,13 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 查询资产
+ *
  * @author aiboleepro
  * @date 2018-01-10 下午2:59
  **/
 public class WorkerBank1 extends Worker {
+
 
     @Override
     public Map<String,Object> call() throws Exception {

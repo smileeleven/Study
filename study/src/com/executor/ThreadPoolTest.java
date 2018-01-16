@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.concurrent.*;
 
 /**
+ * 线程池发送查询资产请求
+ *
  * @author aiboleepro
  * @date 2018-01-09 下午5:24
  **/

@@ -39,6 +39,7 @@ public class Client {
                 }
                 out.close();
                 input.close();
+
             } catch (Exception e) {
                 System.out.println("客户端异常:" + e.getMessage());
             } finally {

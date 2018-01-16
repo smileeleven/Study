@@ -26,7 +26,7 @@ public class WorkerBank1 extends Worker {
         BankParam bankParam = new BankParam();
         bankParam.setBankId("123");
         bankParam.setUserId("345");
-        bankParam.setTradeNo("20180112");
+        bankParam.setTradeNo("123");
         BankResult res = SoketUtil.request(bankParam);
         map.put("money",res.getMoney());
         System.out.println("我是银行1： 你查询的资产为: " + res);

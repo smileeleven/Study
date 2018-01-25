@@ -5,6 +5,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * 单例获取链接
@@ -58,6 +59,8 @@ public class JdbcUtil {
         Connection conn = null;
         try {
             conn = dataSource.getConnection();
+            System.out.println("当前创建的连接数为:" + dataSource.getCreateCount());
+            System.out.println("当前活跃的连接数为:" + dataSource.getActiveCount());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("获取数据库连接失败...");
@@ -77,6 +80,4 @@ public class JdbcUtil {
             System.out.println("释放连接及句柄失败...");
         }
     }
-
-
 }
